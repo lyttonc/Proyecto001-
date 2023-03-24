@@ -3,7 +3,10 @@ from django.http import HttpResponse
 from AppCoder.models import  Curso
 # Create your views here.
 
-def guardar_curso(reques,camada):
-    curso = Curso(nombre="Python", camada=camada)
-    curso.save()
-    return HttpResponse("Usuario creado exitos  amente")
+def cursos(request):
+    return render(request, "index.html")
+
+def estudiantes(request):
+    pass
+def profesores(request):
+    pass
