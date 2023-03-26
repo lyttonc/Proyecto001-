@@ -1,0 +1,11 @@
+<!-- Vinculo con mi template base, para eso uso extend-->
+{% extends "base.html" %}
+{% block contenido_cambia %}
+    {% if cursos %}
+        {% for curso in cursos %}
+            <p>curso: {{ curso }}</p>
+        {% endfor %}
+    {% else %}
+        <p>Aún no hay cursos cargados</p>
+    {% endif %}
+{%  endblock %}
