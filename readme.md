@@ -1,6 +1,6 @@
 Proyecto de Lytton Cabrera-Python-CoderHouse
 
-El presente proyecto contiene 4 ramas. En cada una puede visualizar lo siguiente:
+El presente proyecto contiene 4 ramas. En cada una se puede visualizar lo siguiente:
 
 1-master
     Carga de paquete básico de django y definición de parámetros básicos.
@@ -8,7 +8,7 @@ El presente proyecto contiene 4 ramas. En cada una puede visualizar lo siguiente
     Definición de clases en el models.py y creación de la BD con el código makemigrate y migrate
 
 2-template   
-    Incorporación de una plantilla descargado de la página web https://getbootstrap.com/
+    Incorporación de una plantilla descargada de la página web https://getbootstrap.com/
     Creación de la carpeta static donde tiene el contenido en css y js.    
     Cambio del archivo index.html dentro de la carpeta templates y cambio de nombre a base.html
     Customización del template, load static y redirección de las imágenes.
@@ -28,4 +28,4 @@ En el escenario de máximas corresponde a la rama 4:
     Por otro lado, permite visualizar todas los cursos disponible en la BD.
 
 Atte.
-Lytto Cabrera
+Lytton Cabrera
