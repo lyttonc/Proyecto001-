@@ -34,13 +34,25 @@
                     <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
                         <li class="nav-item"><a class="nav-link me-lg-3" href="#features">Features</a></li>
                         <li class="nav-item"><a class="nav-link me-lg-3" href="#download">Download</a></li>
-                    </ul>
+                    <!-- Está parte lo cometo-Lytton Cabrera-->
+                    <!--
                     <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
                         <span class="d-flex align-items-center">
                             <i class="bi-chat-text-fill me-2"></i>
                             <span class="small">Send Feedback</span>
                         </span>
                     </button>
+                    -->
+                    <!-- Está parte la modifiqué-Lytton Cabrera-->
+
+                        {% if user.is_authenticated %}
+                            <a class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" href="{% url 'accountlogout' %}">Logout</a>
+                        {% else %}
+                            <a class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" href="{% url 'accountloging' %}">Login</a>
+                            <a class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" href="{% url 'accountRegistrar' %}">Registrar</a>
+                        {% endif %}
+                    </ul>
+                    <!-- Hasta acá-->
                 </div>
             </div>
         </nav>
@@ -50,7 +62,12 @@
                 <div class="row gx-5 justify-content-center">
                     <div class="col-xl-10">
                         <div class="h2 text-white mb-0">
-                            "Bienvenido a la aplicación de Lytton Cabrera"</div>
+                            {% if user.is_authenticated %}
+                                "Bienvenido a la aplicación de {{ user.username}}"
+                            {% else %}
+                                "Por favor loguearse"
+                            {% endif %}
+                        </div>
                         <img src="{% static 'AppCoder/assets/img/Lyt.png' %}" alt="..." style="height: 6rem" />
                     </div>
                 </div>

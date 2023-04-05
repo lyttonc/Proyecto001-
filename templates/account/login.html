@@ -1,0 +1,12 @@
+<!-- Vinculo con mi template base, para eso uso extend-->
+{% extends "base.html" %}
+{#   se usa método post porque la contraseña no debe verse #}
+{% block contenido_cambia %}
+    <br>
+    <h1>Login</h1>
+    <form  method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Enviar">
+    </form>
+{%  endblock %}
