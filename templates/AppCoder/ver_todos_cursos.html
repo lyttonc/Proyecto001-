@@ -1,0 +1,11 @@
+<!-- Vinculo con mi template base, para eso uso extend-->
+{% extends "base.html" %}
+{% block contenido_cambia %}
+    {% if cursos %}
+        {% for curso in cursos %}
+            <p>curso: {{ curso }} <a href="{% url 'AppCoderEliminarCurso' curso.camada %}">Eliminar</a> <a href="{% url 'AppCoderEditarCurso' curso.camada %}">Editar</a></p>
+        {% endfor %}
+    {% else %}
+        <p>Aún no hay cursos cargados</p>
+    {% endif %}
+{%  endblock %}

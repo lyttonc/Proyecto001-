@@ -641,6 +641,8 @@ progress {
   margin-left: auto;
 }
 
+
+
 @media (min-width: 576px) {
   .container-sm, .container {
     max-width: 540px;
@@ -11621,4 +11623,7 @@ footer a:hover, footer a:active, footer a:focus {
   .masthead .masthead-device-mockup .device-wrapper {
     max-width: 17rem;
   }
+}
+p1 {
+  font: bold 90% monospace;
 }

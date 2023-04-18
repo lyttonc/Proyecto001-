@@ -17,12 +17,15 @@
         <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'AppCoder/css/styles.css'  %}" rel="stylesheet" />
+
     </head>
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
             <div class="container px-5">
-                <a class="navbar-brand fw-bold" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand fw-bold" href="{% url 'AppCoderCursos' %}">Cursos</a>
+                <a class="navbar-brand fw-bold" href="{% url 'AppCoderEstudiantes' %}">Estudiantes</a>
+                <a class="navbar-brand fw-bold" href="{% url 'AppCoderProfesores' %}">Profesores</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="bi-list"></i>
@@ -31,16 +34,51 @@
                     <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
                         <li class="nav-item"><a class="nav-link me-lg-3" href="#features">Features</a></li>
                         <li class="nav-item"><a class="nav-link me-lg-3" href="#download">Download</a></li>
-                    </ul>
+                    <!-- Está parte lo cometo-Lytton Cabrera-->
+                    <!--
                     <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
                         <span class="d-flex align-items-center">
                             <i class="bi-chat-text-fill me-2"></i>
                             <span class="small">Send Feedback</span>
                         </span>
                     </button>
+                    -->
+                    <!-- Está parte la modifiqué-Lytton Cabrera-->
+
+                        {% if user.is_authenticated %}
+                            <a class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" href="{% url 'accountlogout' %}">Logout</a>
+                        {% else %}
+                            <a class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" href="{% url 'accountloging' %}">Login</a>
+                            <a class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" href="{% url 'accountRegistrar' %}">Registrar</a>
+                        {% endif %}
+                    </ul>
+                    <!-- Hasta acá-->
                 </div>
             </div>
         </nav>
+        <!-- Esta parte la modifiqué -Lytton Cabrera-->
+        <aside class="text-center bg-gradient-primary-to-secondary">
+            <div class="container px-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-xl-10">
+                        <div class="h2 text-white mb-0">
+                            {% if user.is_authenticated %}
+                                "Bienvenido a la aplicación de {{ user.username}}"
+                            {% else %}
+                                "Por favor loguearse"
+                            {% endif %}
+                        </div>
+                        <img src="{% static 'AppCoder/assets/img/Lyt.png' %}" alt="..." style="height: 6rem" />
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <div class="mb-1 px-5">
+            {% block contenido_cambia %}
+            <p1>Welcome to Lytton Cabrera web site.</p1>
+            {%  endblock %}
+        </div>
+
         <!-- Mashead header-->
         <header class="masthead">
             <div class="container px-5">
@@ -48,7 +86,7 @@
                     <div class="col-lg-6">
                         <!-- Mashead text and app badges-->
                         <div class="mb-5 mb-lg-0 text-center text-lg-start">
-                            <h1 class="display-1 lh-1 mb-3">Showcase your app beautifully.</h1>
+                            <h1 class="display-1 lh-1 mb-3">Welcome to Lytton Cabrera web site.</h1>
                             <p class="lead fw-normal text-muted mb-5">Launch your mobile app landing page faster with this free, open source theme from Start Bootstrap!</p>
                             <div class="d-flex flex-column flex-lg-row align-items-center">
                                 <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="../AppCoder/static/AppCoder/assets/img/google-play-badge.svg" alt="..." /></a>
