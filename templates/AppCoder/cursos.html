@@ -1,0 +1,27 @@
+<!-- Vinculo con mi template base, para eso uso extend-->
+{% extends "base.html" %}
+{% block contenido_cambia %}
+        <br>
+{#   Creación de curso #}
+    <p>Para crear un nuevo curso, complete los siguientes campos.</p>
+    <form action="{% url 'AppCoderCurso' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_table}}
+        <input type="submit" value ="Crear">
+    </form>
+{#   Buscar curso #}
+    <br><hr>
+    <p>Si desea buscar algún curso, introduzca el nombre del curso.</p>
+    <form action="{% url 'AppCoderBuscarCurso' %}">
+        {{ form_busqueda.as_table }}
+       <input type="submit" value ="Buscar">
+    </form>
+   <hr><br>
+{#   Ver cursos #}
+<!-- Esta sección lo adicioné para una mejor visual-->
+    <p>Si desea ver todos los cursos, clic en el siguiente botón.</p>
+    <a class="btn btn-primary" href="{% url 'AppCoderTodosCursos' %}">Ver todos los cursos</a>
+<!-- hasta acá-->
+   <hr> <br>
+
+{%  endblock %}

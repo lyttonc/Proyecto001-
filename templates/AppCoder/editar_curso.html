@@ -1,0 +1,14 @@
+<!-- Vinculo con mi template base, para eso uso extend-->
+{% extends "base.html" %}
+
+{% block contenido_cambia %}
+    <br>
+{#   Creación de curso #}
+    <p>Para crear un nuevo curso, complete los siguientes campos.</p>
+    <form action="{% url 'AppCoderEditarCurso' camada %}" method="post">
+        {% csrf_token %}
+        {{ form.as_table}}
+        <input type="submit" value ="Guardar">
+    </form>
+
+{%  endblock %}
