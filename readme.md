@@ -1,31 +1,34 @@
-Proyecto de Lytton Cabrera-Python-CoderHouse
+Proyecto de Lytton Cabrera-Django-Python-CoderHouse
 
-El presente proyecto contiene 4 ramas. En cada una se puede visualizar lo siguiente:
+Nombre del proyecto: Mi primer Blog Django
 
-1-master
-    Carga de paquete básico de django y definición de parámetros básicos.
-    Aplicación AppCoder, interacción con vistas, url, template simple en html.
-    Definición de clases en el models.py y creación de la BD con el código makemigrate y migrate
+Link de github: https://github.com/lyttonc/Proyecto001-
+Link de climchamp: https://clipchamp.com/watch/MWs45Cw7rtH
+link de linkedin: https://www.linkedin.com/in/lyttoncabrera/
+rama: master
 
-2-template   
-    Incorporación de una plantilla descargada de la página web https://getbootstrap.com/
-    Creación de la carpeta static donde tiene el contenido en css y js.    
-    Cambio del archivo index.html dentro de la carpeta templates y cambio de nombre a base.html
-    Customización del template, load static y redirección de las imágenes.
+El presente proyecto contiene 4 funcionalidades básicas:
 
-3-herencia_templates
-    Creación de más plantillas html en función de las necesidades de carga de datos a través de la url.
-    Definición de clases y métodos adicionales.
+1- Registro/login
+    Permite realizar el registro de ususario.
+    Permite realizar una actualización de los datos del usuario.
+    Permite realizar el login a la sección personal. Para acceder debe usar usuario y contraseña.
 
-4-formulario
-    Incorporación de forms.py
-    Definición de otros métodos e integración con las plantillas.
-    
+2-Creación de blog
+    Permite crear un blog a base de formulario.
+    Permite editar el blog.
+    Permiete eliminar el blog.
+    Permite ver más en detalle el blog.
 
-En el escenario de máximas corresponde a la rama 4:
-    La misma contiene la función de crear un curso con su nombre y camada-
-    También, permite la búsqueda de otros cursos. Para eso se necesita hacer la consulta con 3 letras como mínimo.
-    Por otro lado, permite visualizar todas los cursos disponible en la BD.
+3-Creación de comentario sobre un blog específico
+    Permite crear un comentario sobre un determinado blog.
+
+4-Accesos y restricciones
+    Usuario logeado puede ver la sección "About" de la pagina.
+    Usuario logeado puede visualizar unicamente los blogs.
+    Usuario logueado puede edita/eliminar/ver_mas  sus blogs propios.
+    Usuario logueado puede crear comentarios sobre cualquier blog.
 
 Atte.
 Lytton Cabrera
+lrcabrera92@gmail.com
