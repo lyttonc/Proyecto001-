@@ -4,11 +4,12 @@
 {% block contenido_cambia %}
     <br>
 {#   Creación de curso #}
-    <p>Para crear un nuevo curso, complete los siguientes campos.</p>
-    <form action="{% url 'AppCoderEditarCurso' camada %}" method="post">
-        {% csrf_token %}
-        {{ form.as_table}}
-        <input type="submit" value ="Guardar">
-    </form>
-
+    <div class="container px-5">
+        <p>Para editar su blog, complete los siguientes campos.</p>
+        <form action="{% url 'AppCoderEditarBlog' titulo %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <input type="submit" value ="Guardar">
+        </form>
+    </div>
 {%  endblock %}

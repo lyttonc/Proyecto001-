@@ -1,27 +1,28 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 # Create your models here.
 
-class Curso(models.Model):
-    nombre = models.CharField(max_length=40)
-    camada = models.IntegerField(unique=True)
+class miblog(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    fecha = models.DateTimeField(auto_now=True)
+    titulo = models.CharField(max_length=100, unique=True)
+    subtitulo = models.CharField(max_length=100)
+    cuerpo = models.TextField(null=True, blank=True)
+    imagenblog = models.ImageField(upload_to="image_blog", null=True, blank=True)
+
 
     def __str__(self):
-        return f"Curso: {self.nombre}, Camada: {self.camada}"
+        return f"Titulo: {self.titulo}, Subtitulo: {self.subtitulo}"
 
 
-class Estudiantes(models.Model):
-    nombre = models.CharField(max_length=30)
-    apellido = models.CharField(max_length=30)
-    email = models.EmailField()
+class micomentario(models.Model):
+    usuario_coment = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    fecha_coment = models.DateTimeField(auto_now=True)
+    comentario= models.TextField(null=True, blank=True)
+    blog_coment=models.TextField()
 
-
-class Profesor(models.Model):
-    nombre = models.CharField(max_length=30)
-    apellido = models.CharField(max_length=30)
-    email = models.EmailField()
-    profesion = models.CharField(max_length=30)
 
     def __str__(self):
-        return f"Profesor: {self.nombre} {self.apellido}"
+        return f"Comentario: {self.comentario}"
+

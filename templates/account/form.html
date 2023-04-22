@@ -2,11 +2,16 @@
 {% extends "base.html" %}
 {#   se usa método post porque la contraseña no debe verse #}
 {% block contenido_cambia %}
-    <br>
-    <h1>Login</h1>
-    <form  method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Enviar">
-    </form>
+    <div class="container px-5">
+        <section id="features">
+            <div class="container">
+                <h1>{{ titulo }}</h1>
+                <form  method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="{{ enviar }}">
+                </form>
+            </div>
+        </section>
+    </div>
 {%  endblock %}

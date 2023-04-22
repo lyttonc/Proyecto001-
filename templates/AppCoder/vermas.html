@@ -1,0 +1,33 @@
+<!-- Vinculo con mi template base, para eso uso extend-->
+{% extends "base.html" %}
+{% block contenido_cambia %}
+    <br>
+{#   Creación de curso #}
+    <div class="container px-5">
+        <p>Detalle completo de tu blog.</p>
+        <p>Título : {{ blogs.titulo }} </p>
+        <p>Subtítulo : {{ blogs.subtitulo }} </p>
+        <p>Cuerpo : {{ blogs.cuerpo }} </p>
+        <img src="{{ blogs.imagenblog.url }}" alt="Imagen no disponible" width="150" height="150" />
+        <br>
+        <br><hr>
+    {#   Creación de curso #}
+        <p>Podés dejar un comentario referido al post.</p>
+        <form action="{% url 'AppCoderCrearComentario' blogs.titulo %}" method="post" >
+            {% csrf_token %}
+            {{ form.as_p}}
+            <input type="submit" value ="Crear">
+        <br>
+        <br><hr>
+         {% if comentario %}
+            {% for comentarios in comentario %}
+                <p class="text-muted mb-0">Comentario de {{ comentarios.usuario_coment }} | Fecha: {{comentarios.fecha_coment }} | Comentario : {{ comentarios.comentario }}| Titulo : {{ comentarios.blog_coment }}
+            {% endfor %}
+         {% endif %}
+         <br>
+        <br>
+        </form>
+
+    </div>
+
+{%  endblock %}

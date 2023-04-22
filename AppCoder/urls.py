@@ -3,12 +3,15 @@ from AppCoder.views import *
 
 # Con el name le doy un nombre a mi ruta-url, que después voy a incluir en la base
 urlpatterns = [
-    path('cursos', cursos, name="AppCoderCursos"),
-    path('buscar_curso', busqueda_curso, name="AppCoderBuscarCurso"),
-    path('guardado', crear_curso, name="AppCoderCurso"),
-    path('curso/editar_curso/<camada>', editar_curso, name="AppCoderEditarCurso"),
-    path('cursos/eliminar/<camada>', eliminar_curso, name="AppCoderEliminarCurso"),
-    path('estudiantes', estudiantes, name="AppCoderEstudiantes"),
-    path('profesores', profesores, name="AppCoderProfesores"),
-    path('todos_cursos', ver_todos_cursos, name="AppCoderTodosCursos"),
+    path('myspace', blog, name="AppCoderMySpace"),
+    path('buscar_blog', busqueda_blog, name="AppCoderBuscarBlog"),
+    path('mis_blogs', busqueda_mis_blog, name="AppCoderBuscarMisBlogs"),
+    path('guardado', crear_blog, name="AppCoderGuardarBlog"),
+    path('blogs/editar_curso/<titulo>', editar_blog, name="AppCoderEditarBlog"),
+    path('blogs/eliminar/<titulo>', eliminar_blog, name="AppCoderEliminarBlog"),
+    path('blogs/ver_mas/<titulo>', ver_mas, name="AppCoderVerMas"),
+    path('about', about, name="AppCoderAbout"),
+    path('blogs', ver_todos_blogs, name="AppCoderBlogs"),
+    path('todos_cursos', ver_todos_blogs, name="AppCoderTodosBlogs"),
+    path('comentario/<titulo>', crear_comentario, name="AppCoderCrearComentario"),
 ]

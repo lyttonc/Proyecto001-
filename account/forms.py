@@ -5,7 +5,8 @@ from django.contrib.auth.models import User
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
+    imagen = forms.ImageField()
 
     class Meta:
         model = User
-        fields = ("username","email")
+        fields = ("username", "email", "imagen")

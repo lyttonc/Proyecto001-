@@ -1,8 +1,7 @@
 from django.contrib import admin
-from AppCoder.models import Curso,Estudiantes,Profesor
+from AppCoder.models import miblog, micomentario
 # Register your models here.
 # Registrar los que consideres por seguridad
 
-admin.site.register(Curso)
-admin.site.register(Estudiantes)
-admin.site.register(Profesor)
+admin.site.register(miblog)
+admin.site.register(micomentario)

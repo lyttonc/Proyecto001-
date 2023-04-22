@@ -1,27 +1,28 @@
 <!-- Vinculo con mi template base, para eso uso extend-->
 {% extends "base.html" %}
 {% block contenido_cambia %}
-        <br>
-{#   Creación de curso #}
-    <p>Para crear un nuevo curso, complete los siguientes campos.</p>
-    <form action="{% url 'AppCoderCurso' %}" method="post">
-        {% csrf_token %}
-        {{ form.as_table}}
-        <input type="submit" value ="Crear">
-    </form>
-{#   Buscar curso #}
-    <br><hr>
-    <p>Si desea buscar algún curso, introduzca el nombre del curso.</p>
-    <form action="{% url 'AppCoderBuscarCurso' %}">
-        {{ form_busqueda.as_table }}
-       <input type="submit" value ="Buscar">
-    </form>
-   <hr><br>
-{#   Ver cursos #}
-<!-- Esta sección lo adicioné para una mejor visual-->
-    <p>Si desea ver todos los cursos, clic en el siguiente botón.</p>
-    <a class="btn btn-primary" href="{% url 'AppCoderTodosCursos' %}">Ver todos los cursos</a>
-<!-- hasta acá-->
-   <hr> <br>
+    <div class="container px-5"  >
+        <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+            <div class="col-12 col-lg-5">
+                <br>
+            {#   Creación de curso #}
+                <p >Para crear un nuevo curso, complete los siguientes campos.</p>
+                <form  action="{% url 'AppCoderGuardarBlog' %}" method="post" enctype="multipart/form-data" >
+                    {% csrf_token %}
+                    {{ form.as_p}}
+                    <input type="submit" value ="Crear" class="btn btn-primary">
+                </form>
+            {#   Buscar curso #}
+                <br>
+            </div>
+            <div class="col-sm-8 col-md-6">
+                    <h5>Para ver todos tus blogs, clic en el siguiente botón</h5>
+                    <a class="btn btn-primary" href="{% url 'AppCoderBuscarMisBlogs' %}">Ir a mis blogs</a>
+                <br>
+                <br>
+            </div>
+
+        </div>
+    </div>
 
 {%  endblock %}

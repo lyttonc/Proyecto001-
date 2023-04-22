@@ -1,12 +1,17 @@
 <!-- Vinculo con mi template base, para eso uso extend-->
 {% extends "base.html" %}
+{% load static %}
 {% block contenido_cambia %}
-    {% if cursos %}
-        {% for curso in cursos %}
-            <p>curso: {{ curso }} <a href="{% url 'AppCoderEliminarCurso' curso.camada %}">Eliminar</a> <a href="{% url 'AppCoderEditarCurso' curso.camada %}">Editar</a></p>
-        {% endfor %}
-    {% else %}
-        <p>No hay cursos con esa denominacion</p>
-
-    {% endif %}
+    <div class="container px-5">
+        {% if blogs %}
+            {% for blog in blogs %}
+                <p>Blog -> Fecha: {{blog.fecha }} | Título : {{ blog.titulo }} | Subtítulo: {{blog.subtitulo }} | Imagen:
+                    <img src="{{ blog.imagenblog.url }}" alt="Error de imagen" height="40px">
+                    <a href="{% url 'AppCoderEliminarBlog' blog.titulo %}">Eliminar</a>
+                    <a href="{% url 'AppCoderEditarBlog' blog.titulo %}">Editar</a></p>
+            {% endfor %}
+        {% else %}
+            <p>No hay cursos con esa denominación</p>
+        {% endif %}
+    </div>
 {%  endblock %}

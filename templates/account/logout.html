@@ -1,4 +1,10 @@
 {% extends "base.html" %}}
 {% block contenido_cambia %}
-    Has terminado con tu sesión, ingresa de nuevo para tener acceso a todas las configuraciones
+    <section id="features">
+        <div class="container">
+            <h3>Si desea conocer más sobre la página web, presione el siguiente botón.</h3>
+            <a class="btn btn-primary" href="{% url 'AppCoderAbout' %}">Conocer más</a>
+        </div>
+    </section>
+
 {%  endblock %}

@@ -1,0 +1,18 @@
+<!-- Vinculo con mi template base, para eso uso extend-->
+{% extends "base.html" %}
+{% load static %}
+{% block contenido_cambia %}
+    <div class="container px-5">
+        {% if blogs %}
+            {% for blog in blogs %}
+                <p class="text-muted mb-0">Blog -> Fecha: {{blog.fecha }} | Título : {{ blog.titulo }} | Subtítulo: {{blog.subtitulo }} | Imagen:
+                    <img src="{{ blog.imagenblog.url }}" alt="Error de imagen" height="40px">
+                    <a href="{% url 'AppCoderEliminarBlog' blog.titulo %}">Eliminar</a>
+                    <a href="{% url 'AppCoderEditarBlog' blog.titulo %}">Editar</a>
+                    <a href="{% url 'AppCoderVerMas' blog.titulo %}">Ver más</a></p>
+            {% endfor %}
+        {% else %}
+            <p>No hay cursos con esa denominación</p>
+        {% endif %}
+    </div>
+{%  endblock %}

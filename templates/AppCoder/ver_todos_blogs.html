@@ -1,11 +1,26 @@
 <!-- Vinculo con mi template base, para eso uso extend-->
 {% extends "base.html" %}
+{% load static %}
 {% block contenido_cambia %}
-    {% if cursos %}
-        {% for curso in cursos %}
-            <p>curso: {{ curso }} <a href="{% url 'AppCoderEliminarCurso' curso.camada %}">Eliminar</a> <a href="{% url 'AppCoderEditarCurso' curso.camada %}">Editar</a></p>
-        {% endfor %}
-    {% else %}
-        <p>Aún no hay cursos cargados</p>
-    {% endif %}
+    <div class="container px-5" >
+        <br>
+        <p class="text-muted mb-0">Si desea buscar algún blog en particular, escriba el título en las siguiente casilla.</p>
+                <form action="{% url 'AppCoderBuscarBlog' %}">
+                    {{ form_busqueda.as_table }}
+                    <input type="submit" value ="Buscar">
+                </form>
+        <hr><br>
+
+        {% if blogs %}
+            {% for blog in blogs %}
+                <p class="text-muted mb-0" >Post de Usuario :{{ blog.usuario }} | Fecha: {{blog.fecha }} | Título : {{ blog.titulo }} | Subtítulo: {{blog.subtitulo }} | Imagen:
+                    <img src="{{ blog.imagenblog.url }}" alt="Error de imagen" height="40px">
+                    <a href="{% url 'AppCoderVerMas' blog.titulo %}">Ver más</a>
+                </p>
+            {% endfor %}
+        {% else %}
+            <p>Aún no hay blogs cargados</p>
+        {% endif %}
+        <br>
+    </div>
 {%  endblock %}
